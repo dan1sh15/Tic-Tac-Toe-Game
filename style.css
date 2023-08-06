@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+nav{
+    height: 8vh;
+    background-color: rgb(67, 2, 69);
+    color: white;
+    /* color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    padding: 0 15px;
+    font-family: 'Dosis', sans-serif;
+}
+
+nav.darkmode{
+    background-color: rgb(220 157 212);
+    color: black;
+}
+
+body.darkmode{
+    background-color: black;
+    background-size: contain;
+}
+
+#icon{
+    font-size: 1.5rem;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+nav ul{
+    list-style: none;
+}
+
+.gameContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 7vh;
+}
+
+.gameContainer.darkmode{
+    color: white;
+}
+
+.gameInfo.darkmode{
+    color: white;
+}
+
+#reset.darkmode{
+    color: black;
+    background-color: rgb(220 157 212);
+}
+
+.container{
+    display: grid;
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
+    position: relative;
+}
+
+.box{
+    border: 2px solid black;
+    font-size: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.box.darkmode{
+    border: 2px solid white;
+}
+
+.box:hover{
+    background-color: rgba(255, 162, 255, 0.445);
+}
+
+.gameInfo{
+    padding: 34px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.imgBox img{
+    width: 0;
+    transition: all 1.1s ease-in-out;
+}
+
+.br-0{
+    border-right: none !important;
+}
+
+.bl-0{
+    border-left: none !important;
+}
+
+.bt-0{
+    border-top: none !important ;
+}
+
+.bb-0{
+    border-bottom: none !important;
+}
+
+.info{
+    font-size: 1.25rem;
+}
+
+#reset{
+    font-size: 1.25rem;
+    padding: 3px 15px;
+    margin: 0 20px;
+    background-color: rgb(67, 2, 69);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+}
+
+/* .line{
+    background-color: black;
+    width: 3px;
+    height: 90%;
+    position: absolute;
+    left: 15vw;
+    top: -30vh;
+    transform: rotate(90deg);
+} */
+
+@media (max-width: 700px){
+    .gameContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .info{
+        font-size: 1rem;
+    }
+
+    #reset{
+        font-size: 1rem;
+    }
+
+    .gameInfo{
+        margin-top: 34px;
+    }
+
+    .container{
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
+}
