@@ -12,6 +12,7 @@ const changeTurn = ()=>{
 // FUNCTION TO CHECK WIN
 const checkWin = ()=>{
     let boxtext = document.getElementsByClassName('boxtext');
+    let boxes = document.querySelectorAll(".box");
     let wins = [
         [0, 1, 2],
         [3, 4, 5],
@@ -22,15 +23,35 @@ const checkWin = ()=>{
         [0, 4, 8],
         [2, 4, 6]
     ]
-
+    // console.log(boxes);
     wins.forEach((e) => {
         if((boxtext[e[0]].innerText === boxtext[e[1]].innerText) && (boxtext[e[1]].innerText === boxtext[e[2]].innerText) && (boxtext[e[0]].innerText) !== ""){
             document.querySelector('.info').innerHTML = boxtext[e[0]].innerText + " Won!!!";
             gameOver.play();
             endGame = true;
             document.querySelector('.imgBox').getElementsByTagName('img')[0].style.width = "56px";
+            
+            for(let i=0; i<3; i++){
+                boxes[e[i]].style.backgroundColor = "violet";
+            }
         }
-    })
+    });
+
+    
+    if(!endGame) document.getElementsByClassName('info')[0].innerHTML = "Turn for " + turn;
+
+    let filledBoxes = 0;
+    Array.from(boxtext).forEach((box) => {
+        if(box.innerText !== "") filledBoxes++;
+    });
+    console.log(filledBoxes);
+    console.log("End Game" + endGame);
+
+    if(endGame === false && filledBoxes === 9){
+        console.log("INside endgame block");
+        document.querySelector('.info').innerText = "Game Tied!";
+    }
+
 }
 
 // GAME LOGIC
@@ -43,8 +64,6 @@ Array.from(boxes).forEach((element) =>{
             turn = changeTurn();
             clickAudio.play();
             checkWin();
-            if(!endGame) document.getElementsByClassName('info')[0].innerHTML = "Turn for " + turn;
-
         }
     })
 });
@@ -53,6 +72,11 @@ Array.from(boxes).forEach((element) =>{
 let reset = document.getElementById('reset');
 reset.addEventListener('click', ()=>{
     let boxtext = document.querySelectorAll('.boxtext');
+
+    Array.from(boxes).forEach((ele) => {
+        ele.style.backgroundColor = "transparent";
+    });
+
     Array.from(boxtext).forEach((e) => {
         e.innerText = "";
     })
@@ -60,6 +84,7 @@ reset.addEventListener('click', ()=>{
     endGame = false;
     document.getElementsByClassName("info")[0].innerHTML = "Turn for " + turn;
     document.querySelector('.imgBox').getElementsByTagName('img')[0].style.width = "0";
+
 })
 
 let theme = document.getElementById('icon');

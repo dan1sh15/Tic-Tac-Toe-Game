@@ -21,12 +21,12 @@ nav{
 }
 
 nav.darkmode{
-    background-color: rgb(220 157 212);
+    background-color: rgb(211, 107, 197);
     color: black;
 }
 
 body.darkmode{
-    background-color: black;
+    background-color: rgb(26, 22, 22);
     background-size: contain;
 }
 
@@ -127,15 +127,6 @@ nav ul{
     font-family: 'Dosis', sans-serif;
 }
 
-/* .line{
-    background-color: black;
-    width: 3px;
-    height: 90%;
-    position: absolute;
-    left: 15vw;
-    top: -30vh;
-    transform: rotate(90deg);
-} */
 
 @media (max-width: 700px){
     .gameContainer{
